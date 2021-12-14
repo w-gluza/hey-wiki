@@ -1,0 +1,24 @@
+.avatar-container {
+  display: flex;
+  align-items: flex-start;
+  .avatar-msg {
+    margin: $xs 0;
+    margin-right: $xs;
+  }
+}
+
+.avatar-msg {
+  margin-right: $xs;
+  height: 24px;
+}
+
+.bot {
+  align-self: flex-start;
+  color: $color-black;
+  background-color: $color-light-grey;
+  box-shadow: $box-shadow-chatbot;
+  border-radius: 0px $border-radius-xs $border-radius-xs $border-radius-xs;
+  padding: $xs 16px;
+  margin: $xs 0;
+  max-width: 60%;
+}

@@ -1,0 +1,23 @@
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-light-grey;
+  padding-bottom: $xs;
+}
+
+.avatar-header {
+  margin-right: $xs;
+}
+
+.chatbot-intro {
+  display: flex;
+  width: 100%;
+}
+
+.chatbot-subtitle {
+  font-size: $font-size-xs;
+}
+
+.close-button {
+cursor: pointer;
+}

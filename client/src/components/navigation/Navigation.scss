@@ -1,0 +1,20 @@
+.nav-container {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	padding: $md;
+}
+
+.nav-list {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	.item {
+		border-bottom: $border-transparent;
+		font-size: $font-size-sm;
+		font-weight: $font-weight-light;
+		margin-left: $lg;
+	}
+	.item:hover {
+		border-bottom: $border-primary;
+	}
+}

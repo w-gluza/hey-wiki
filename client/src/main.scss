@@ -1,0 +1,17 @@
+
+@import './style/variables.scss';
+@import './style/base.scss';
+
+@import './components/navigation/Navigation.scss';
+@import './components/bot/Bot.scss';
+@import './components/chatbot-header/ChatbotHeader.scss';
+@import './components/user-message/UserMessage.scss';
+@import './components/bot-message/BotMessage.scss';
+@import './components/bot-suggestions/BotSuggestions.scss';
+@import './components/bot-snippet/BotSnippet.scss';
+@import './components/chatbot-footer/ChatbotFooter.scss';
+
+
+@import './components/media-controller/MediaController.scss';
+@import './components/typing-placeholder/TypingPlaceholder.scss';
+

@@ -1,0 +1,39 @@
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: $color-white;
+  border-top: $border-chat;
+  padding: $xs 0 0 0;
+}
+
+.chatbot-form {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  padding: $xs;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &::placeholder {
+    font-size: $font-size-xs;
+  }
+}
+
+.btn-send {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-primary;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  &:hover {
+    background-color: $color-primary-dark;
+    color: $color-white;
+    cursor: pointer;
+  }
+}
+
+.plane-vector {
+  height: 40%;
+}

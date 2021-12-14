@@ -1,0 +1,137 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  border: none;
+  background-color: transparent;
+  font-family: 'Open Sans', Helvetica, Arial, Verdana, Tahoma;
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+  /* This define what 1rem is */
+  /* 10px/16pc = 62,5% --> 1rem = 10px; */
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-light;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
+  color: $color-primary;
+}
+
+.main-container {
+  display: grid;
+  grid-template-rows: max-content auto;
+  height: 100vh;
+}
+
+.home-container {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+	margin: $md;
+	section {
+		margin: 0 $xl;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+.intro {
+	align-items: flex-start;
+}
+
+.illustration-container {
+	align-items: center;
+}
+
+.intro, .illustration {
+	max-width: 500px;
+}
+
+.overlay-container {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn .3s;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
+	}
+}
+
+h1 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  margin: $md 0;
+}
+
+h2 {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+}
+
+p {
+  font-size: 16px;
+  font-weight: $font-weight-light;
+}
+
+input {
+  font-size: 16px;
+  font-weight: $font-weight-light;
+}
+
+.subheading {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-light;
+}
+
+
+.btn-primary {
+	background-color: transparent;
+	color: $color-primary;
+	border: $border-primary;
+	border-radius: $border-radius-lg;
+	font-size: $sm;
+	font-weight: $font-weight-bold;
+	padding: $xs $md;
+	margin: $md 0;
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+		cursor: pointer;
+	}
+}
+
+
+input:focus {
+  outline: none;
+}

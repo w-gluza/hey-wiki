@@ -1,0 +1,39 @@
+.chatbot {
+  display: grid;
+  grid-template-rows: max-content 3fr max-content;
+  background: $color-white;
+  border: $border-chat;
+  border-radius: $border-radius-md;
+  width: 30vw;
+  height: auto;
+  min-height: 60vh;
+  padding: $sm;
+}
+
+.chatbot-stream {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  max-height: 50vh;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.bot-container, .user-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .chatbot {
+    min-width: 60vw;
+    max-width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .chatbot {
+    min-width: 90vw;
+  }
+}

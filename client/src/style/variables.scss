@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html {
+  /* This define what 1rem is */
+  /* 10px/16pc = 62,5% --> 1rem = 10px; */
+  font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+}
+
+// Colors Variables
+
+// Basic Colors
+$color-white: #ffffff;
+$color-light-grey: #EAECF0;
+$color-dark-grey: #54595D;
+$color-black: #000000;
+
+// Accent Colors
+$color-primary-light: #EAF3FF;
+$color-primary: #3366CC;
+$color-primary-dark: #2A4B8D;
+
+// Utility Colors
+$color-success: #00AF89;
+$color-warning: #FFCC33;
+$color-error: #DD3333;
+
+
+// Font Variables
+
+$font-size-xs: 1.6rem;
+$font-size-sm: 2.2rem;
+$font-size-md: 3rem;
+$font-size-md: 3.6rem;
+$font-size-xl: 7.2rem;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 800;
+
+// Size variables
+
+$xs: 1rem;
+$sm: 2rem;
+$md: 3rem;
+$lg: 4rem;
+$xl: 8rem;
+
+// Border
+
+$border-primary: 2px solid $color-primary;
+$border-transparent: 2px solid transparent;
+$border-chat:  1px solid $color-light-grey;
+$border-radius-xs: 20px;
+$border-radius-sm: 25px;
+$border-radius-md: 35px;
+$border-radius-lg: 50px;
+
+// Box shadow
+
+$box-shadow-chatbot: 0px 10px 15px -10px rgba(84, 89, 93, 0.45);
+$box-shadow-user: 0px 10px 15px -5px rgba(51, 102, 204, 0.45);
+
+// ------------------ MIXINS ----------------------- //
+
+// Media Query Manager              $breakpoint
+/*
+0 - 576px       extra small           xs  
+576 - 768px     small                 sm
+768 - 992px     medium                md
+992 - 1200px    large                 lg
+1200px +        extra large           xl
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 576) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == md {
+    @media (min-width: 768) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == lg {
+    @media (min-width: 992) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == xl{
+    @media (min-width: 1200) {
+      @content;
+    }
+  }
+}

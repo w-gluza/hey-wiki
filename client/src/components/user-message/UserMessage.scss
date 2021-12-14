@@ -1,0 +1,15 @@
+.user {
+  align-self: flex-end;
+  color: #f2f4f8;
+  background: rgb(42, 139, 242);
+  background: linear-gradient(
+    90deg,
+    rgba(42, 139, 242, 1) 0%,
+    rgba(51, 102, 204, 1) 50%
+  );
+  box-shadow: $box-shadow-user;
+  border-radius: $border-radius-xs $border-radius-xs 0px $border-radius-xs;
+  padding: $xs 16px;
+  margin: $xs 0;
+  max-width: 60%;
+}
