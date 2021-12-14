@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/wiki-logo.svg';
 
 const Navigation = () => (
@@ -8,13 +9,13 @@ const Navigation = () => (
     </div>
     <ul className="nav-list">
       <li className="item">
-        <a href="#">Home</a>
+        <Link to="/">Home</Link>
       </li>
       <li className="item">
-        <a href="#">About</a>
+        <Link to="/about">About</Link>
       </li>
       <li className="item">
-        <a href="#">Tutorials</a>
+        <Link to="/contact">Contact</Link>
       </li>
     </ul>
   </div>

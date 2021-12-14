@@ -7,12 +7,13 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import { createSession } from './actions/queue';
 import store from './store';
-import illustration from './assets/chat-illustration.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import ChatbotContainer from './container/ChatbotContainer.jsx';
+
 import Navigation from './components/navigation/Navigation.jsx';
-import Modal from './components/modal/Modal.jsx';
-import ToggleContent from './components/modal/ToggleContent.jsx';
+import HomeContainer from './container/HomeContainer';
+import AboutContainer from './container/AboutContainer';
+import ContactContainer from './container/ContactContainer';
 
 if (localStorage.session) {
   delete axios.defaults.headers.common.session_id;
@@ -32,37 +33,16 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <div className="main-container">
-        <Navigation />
-        <div className="home-container">
-          <section className="intro">
-            <h1>Hello,</h1>
-            <p className="subheading">
-              WIKI is here to help you with editing and contributing to
-              Wikipedia. Click below to start a chat!
-            </p>
-            <ToggleContent
-              toggle={(show) => (
-                <button className="btn-primary" onClick={show}>
-                  Let's chat
-                </button>
-              )}
-              content={(hide) => (
-                <Modal>
-                  <ChatbotContainer hide={hide} />
-                </Modal>
-              )}
-            />
-          </section>
-          <section className="illustration-container">
-            <img
-              className="illustration"
-              src={illustration}
-              alt="chatting people"
-            />
-          </section>
+      <Router>
+        <div className="main-container">
+          <Navigation />
+          <Routes>
+            <Route exact path="/" element={<HomeContainer />} />
+            <Route exact path="/about" element={<AboutContainer />} />
+            <Route exact path="/contact" element={<ContactContainer />} />
+          </Routes>
         </div>
-      </div>
+      </Router>
     </Provider>
   );
 };
