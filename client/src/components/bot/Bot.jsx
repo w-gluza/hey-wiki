@@ -5,9 +5,21 @@ import UserMessage from '../user-message/UserMessage.jsx';
 import ChatbotFooter from '../chatbot-footer/ChatbotFooter.jsx';
 import BootController from '../bot-controller/BotController.jsx';
 import MessageTypeEnum from '../../types/MessageTypeEnum';
+import axios from 'axios';
 
 const Bot = ({ chat, userMessage, sendMessage, hide }) => {
   const endOfMessages = useRef(null);
+  console.log('sessionStorage.session',sessionStorage.session)
+
+  useEffect(() => {
+    if (sessionStorage.session) {
+      delete axios.defaults.headers.common.session_id;
+      axios.defaults.headers.common.session_id = sessionStorage.session;
+    } else {
+      delete axios.defaults.headers.common.session_id;
+    }
+  }, []);
+
 
   const scrollToBottom = () => {
     endOfMessages.current.scrollIntoView({ behavior: 'smooth' });
@@ -20,6 +32,8 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
     }
     return false;
   }
+
+
   return (
     <>
       <section className="chatbot">
