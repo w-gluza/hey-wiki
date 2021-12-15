@@ -12,13 +12,15 @@ const BotSnippet = ({ msg }) => {
       : null;
 
   const matchedCodeArray =
-    typeof msg === 'string' && msg.match(/(?<=~~~)[\s\S]*(?=~~~)/i);
+    typeof msg === 'string' && msg.match(/(?=~~~)[\s\S]*(?=~~~)/i);
 
   const matchedCodeString =
     Array.isArray(matchedCodeArray) && matchedCodeArray.length >= 1
       ? matchedCodeArray[0]
       : null;
 
+  const cleanedCodeString =
+    typeof msg === "string" && matchedCodeString.replaceAll("~~~", "");
   return (
     <>
       {matchedString && <BootSingle msg={matchedString} />}
@@ -29,7 +31,7 @@ const BotSnippet = ({ msg }) => {
             style={stackoverflowLight}
             wrapLines={true}
           >
-            {matchedCodeString}
+            {cleanedCodeString}
           </SyntaxHighlighter>
         </div>
       )}
