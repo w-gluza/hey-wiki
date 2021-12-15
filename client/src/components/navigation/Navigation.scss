@@ -8,13 +8,30 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	.item {
-		border-bottom: $border-transparent;
-		font-size: $font-size-sm;
-		font-weight: $font-weight-light;
-		margin-left: $lg;
-	}
-	.item:hover {
+}
+
+.nav-inactive {
+	border-bottom: $border-transparent;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-light;
+	margin-left: $lg;
+	color: $color-black !important;
+	&:hover {
+		color: $color-primary;
 		border-bottom: $border-primary;
 	}
 }
+
+.nav-active {
+	border-bottom: $border-transparent;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-light;
+	margin-left: $lg;
+	color: $color-black !important;
+	border-bottom: $border-primary;
+}
+
+.nav-active:hover {
+	border-bottom: $border-primary;
+}
+

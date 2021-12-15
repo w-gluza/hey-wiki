@@ -65,6 +65,14 @@ a:active {
 	max-width: 500px;
 }
 
+.illustration-about {
+	max-width: 400px;
+}
+
+.illustration-contact {
+	max-width: 400px;
+}
+
 .overlay-container {
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -112,6 +120,12 @@ input {
 .subheading {
   font-size: $font-size-sm;
   font-weight: $font-weight-light;
+}
+
+.about-paragraph, .contact-paragraph {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-light;
+  padding-bottom: 16px;
 }
 
 
