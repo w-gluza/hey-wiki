@@ -26,7 +26,10 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
         <ChatbotHeader hide={hide} />
         <article className="chatbot-stream">
           <div className="bot-container">
-            <BootController msg="Welcome" msgType={MessageTypeEnum.CUSTOM} />
+            <BootController
+              msg="Hello 👋, I’m Wiki chatbot. I’m excited that you are a part of Wikipedia 🚀! How can I help you?"
+              msgType={MessageTypeEnum.CUSTOM}
+            />
           </div>
           {chat.length !== 0 &&
             chat.map((msg, index) => (
