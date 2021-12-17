@@ -41,12 +41,19 @@ export default function watsonReducer(state = initialState, action) {
       messages = [
         ...messages,
         {
+          // message:
+          //   payload.generic[0].response_type === 'text'
+          //     ? payload.generic[0].text
+          //     : [...payload.generic[0].suggestions],
           message:
-            payload.generic[0].response_type === 'text'
+          payload.generic.length >=2 
+          ? payload.generic
+          : payload.generic[0].response_type === 'text'
               ? payload.generic[0].text
               : [...payload.generic[0].suggestions],
           type: 'bot',
-          msgType: payload.generic[0].response_type,
+          // msgType: payload.generic[0].response_type,
+          msgType: payload.generic.length >=2 ? "MULTIPLE" : payload.generic[0].response_type,
         },
       ];
       console.log('payload', payload);
