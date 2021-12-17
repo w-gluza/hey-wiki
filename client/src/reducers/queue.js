@@ -29,8 +29,7 @@ export default function watsonReducer(state = initialState, action) {
         ...state,
       };
     case SESSION_SUCCESS:
-      localStorage.setItem('session', payload.session_id);
-      window.location.reload();
+      sessionStorage.setItem('session', payload.session_id);
       return {
         ...state,
       };
