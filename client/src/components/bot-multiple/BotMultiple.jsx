@@ -2,7 +2,7 @@ import React from "react";
 import BootSingle from "../bot-single/BotSingle";
 import UserFeedback from "../user-feedback/UserFeedback";
 
-const BotMultiple = ({ messages }) => {
+const BotMultiple = ({ messages, sendMessage }) => {
   const textMessages = messages.filter((obj) => {
     return obj.response_type === "text";
   });
@@ -16,7 +16,6 @@ const BotMultiple = ({ messages }) => {
       ? optionsMessages[0].options
       : null;
 
-  console.log("optionsMessagesFlatten", optionsMessagesFlatten);
 
   return (
     <>
@@ -24,7 +23,10 @@ const BotMultiple = ({ messages }) => {
         <BootSingle msg={singleMsg.text} />
       ))}
       {optionsMessagesFlatten && Array.isArray(optionsMessagesFlatten) && (
-        <UserFeedback optionsMessagesFlatten={optionsMessagesFlatten} />
+        <UserFeedback
+          optionsMessagesFlatten={optionsMessagesFlatten}
+          sendMessage={sendMessage}
+        />
       )}
     </>
   );

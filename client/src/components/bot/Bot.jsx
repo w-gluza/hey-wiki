@@ -1,25 +1,40 @@
-import React, { useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import ChatbotHeader from '../chatbot-header/ChatbotHeader.jsx';
-import UserMessage from '../user-message/UserMessage.jsx';
-import ChatbotFooter from '../chatbot-footer/ChatbotFooter.jsx';
-import BootController from '../bot-controller/BotController.jsx';
-import MessageTypeEnum from '../../types/MessageTypeEnum';
+import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import ChatbotHeader from "../chatbot-header/ChatbotHeader.jsx";
+import UserMessage from "../user-message/UserMessage.jsx";
+import ChatbotFooter from "../chatbot-footer/ChatbotFooter.jsx";
+import BootController from "../bot-controller/BotController.jsx";
+import MessageTypeEnum from "../../types/MessageTypeEnum";
 
 const Bot = ({ chat, userMessage, sendMessage, hide }) => {
   const endOfMessages = useRef(null);
+  const [optionRequired, setOptionRequired] = useState(false);
 
   const scrollToBottom = () => {
-    endOfMessages.current.scrollIntoView({ behavior: 'smooth' });
+    endOfMessages.current.scrollIntoView({ behavior: "smooth" });
   };
   useEffect(scrollToBottom, [chat]);
 
   function checkForSnippet(text) {
-    if (typeof text === 'string') {
-      return text.includes('~~~');
+    if (typeof text === "string") {
+      return text.includes("~~~");
     }
     return false;
   }
+
+
+  useEffect(() => {
+    if (Array.isArray(chat) && chat.length >= 1) {
+      const lastElement = chat[chat.length - 1];
+      const activeMsgType = lastElement.msgType === "MULTIPLE" ? true : false;
+      if (activeMsgType) {
+        setOptionRequired(true);
+      } else {
+        setOptionRequired(false);
+      }
+    }
+  }, [chat]);
+
   return (
     <>
       <section className="chatbot">
@@ -34,14 +49,17 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
           {chat.length !== 0 &&
             chat.map((msg, index) => (
               <div key={index} className={`${msg.type}-container`}>
-                {msg.type === 'bot' ? (
+                {msg.type === "bot" ? (
                   <BootController
                     msgType={
-                      checkForSnippet(msg.message) ? MessageTypeEnum.SNIPPET : msg.msgType
+                      checkForSnippet(msg.message)
+                        ? MessageTypeEnum.SNIPPET
+                        : msg.msgType
                     }
                     msg={msg}
                     userMessage={userMessage}
                     sendMessage={sendMessage}
+                    setOptionRequired={setOptionRequired}
                   />
                 ) : (
                   <UserMessage msg={msg.message} />
@@ -51,7 +69,11 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
 
           <div ref={endOfMessages}></div>
         </article>
-        <ChatbotFooter userMessage={userMessage} sendMessage={sendMessage} />
+        <ChatbotFooter
+          userMessage={userMessage}
+          sendMessage={sendMessage}
+          optionRequired={optionRequired}
+        />
       </section>
     </>
   );

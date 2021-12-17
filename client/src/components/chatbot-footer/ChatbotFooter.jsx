@@ -1,20 +1,49 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import sendVector from '../../assets/sendVector.svg';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import sendVector from "../../assets/sendVector.svg";
 
-const ChatbotFooter = ({ userMessage, sendMessage }) => {
-  const [message, setMessage] = useState('');
+const ChatbotFooter = ({
+  userMessage,
+  sendMessage,
+  optionRequired,
+}) => {
+  const [message, setMessage] = useState("");
 
   // Check if a variable is not blank
   function isBlank(str) {
     return !str || /^\s*$/.test(str);
   }
-
-  const sendMsg = (msg) => {
-    if (typeof msg === 'string' && !isBlank(msg)) {
+  const sendRegularMsg = (msg) => {
+    if (typeof msg === "string" && !isBlank(msg)) {
       userMessage(msg);
       sendMessage(msg);
-      setMessage('');
+      setMessage("");
+    }
+  };
+
+
+  const handleMsgUI = (msg) => {
+    if (typeof msg === "string" && !isBlank(msg) && msg !== "SKIP") {
+      userMessage(msg);
+      setMessage("");
+    }
+  };
+
+  async function sendAsyncMsg(queue) {
+    for (let singleMessage of queue) {
+      handleMsgUI(singleMessage);
+      await sendMessage(singleMessage);
+    }
+  }
+
+  const sendMsg = (msg) => {
+    if (typeof msg === "string" && !isBlank(msg)) {
+      if (optionRequired) {
+        const messageQueue = ["SKIP", msg];
+        sendAsyncMsg(messageQueue);
+      } else {
+        sendRegularMsg(msg);
+      }
     }
   };
 
