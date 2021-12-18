@@ -5,9 +5,12 @@
 }
 
 .nav-list {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
+	display: none;
+	@include respond(lg) {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	  }
 }
 
 .nav-inactive {

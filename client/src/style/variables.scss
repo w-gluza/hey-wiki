@@ -29,9 +29,9 @@ $color-error: #DD3333;
 
 // Font Variables
 
-$font-size-xs: 1.6rem;
-$font-size-sm: 2.2rem;
-$font-size-md: 3rem;
+$font-size-xs: 1.4rem;
+$font-size-sm: 2rem;
+$font-size-md: 2.4rem;
 $font-size-md: 3.6rem;
 $font-size-xl: 7.2rem;
 
@@ -75,25 +75,25 @@ $box-shadow-user: 0px 10px 15px -5px rgba(51, 102, 204, 0.45);
 
 @mixin respond($breakpoint) {
   @if $breakpoint == sm {
-    @media (min-width: 576) {
+    @media (min-width: 576px) {
       @content;
     }
   }
 
   @if $breakpoint == md {
-    @media (min-width: 768) {
+    @media (min-width: 768px) {
       @content;
     }
   }
 
   @if $breakpoint == lg {
-    @media (min-width: 992) {
+    @media (min-width: 992px) {
       @content;
     }
   }
 
   @if $breakpoint == xl{
-    @media (min-width: 1200) {
+    @media (min-width: 1200px) {
       @content;
     }
   }
