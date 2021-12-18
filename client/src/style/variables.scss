@@ -98,3 +98,13 @@ $box-shadow-user: 0px 10px 15px -5px rgba(51, 102, 204, 0.45);
     }
   }
 }
+
+.icon-expand-link .contract {
+  display: none;
+}
+.icon-expand-link:hover .expand {
+  display: none;
+}
+.icon-expand-link:hover .contract {
+  display: block;
+}

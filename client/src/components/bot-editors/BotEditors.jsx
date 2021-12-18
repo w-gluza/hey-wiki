@@ -22,6 +22,9 @@ const BotEditor = ({
   });
 
 
+  // <a href="#0"class="icon-expand-link">
+  // <Icon name="CodeEditor"/>
+  // </a>
   return (
     <div>
       {textMessages && textMessages.map((singleMsg) => (

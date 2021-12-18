@@ -1,0 +1,9 @@
+.icon-expand-link .contract {
+    display: none;
+  }
+  .icon-expand-link:hover .expand {
+    display: none;
+  }
+  .icon-expand-link:hover .contract {
+    display: block;
+  }
