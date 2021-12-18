@@ -4,10 +4,22 @@
   background: $color-white;
   border: $border-chat;
   border-radius: $border-radius-md;
-  width: 30vw;
+  width: 80vw;
   height: auto;
   min-height: 60vh;
   padding: $sm;
+  @include respond(sm) {
+    width: 60vw;
+  }
+  @include respond(md) {
+    width: 50vw;
+  }
+  @include respond(lg) {
+    width: 40vw;
+  }
+  @include respond(xl) {
+    width: 36vw;
+  }
 }
 
 .chatbot-stream {
