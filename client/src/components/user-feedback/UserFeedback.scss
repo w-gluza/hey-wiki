@@ -1,0 +1,30 @@
+.icon-positive {
+	height: 42px;
+	width: 42px;
+	fill: $color-success;
+	background-color: transparent;
+	border: 1px solid $color-success;
+	border-radius: 50%;
+	  &:hover {
+	  cursor: pointer;
+	  background-color: $color-success;
+	  border: 1px solid $color-success;
+		fill: $color-white;
+	  }
+  }
+  
+  .icon-negative {
+	height: 42px;
+	width: 42px;
+	fill: $color-error;
+	background-color: transparent;
+	border: 1px solid $color-error;
+	border-radius: 50%;
+	  &:hover {
+	  cursor: pointer;
+	  background-color: $color-error;
+	  border: 1px solid $color-error;
+		fill: $color-white;
+	  }
+  }
+
