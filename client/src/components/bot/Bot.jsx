@@ -14,6 +14,9 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
 
   const scrollToBottom = () => {
     endOfMessages.current.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      endOfMessages.current.scrollIntoView({ behavior: "smooth" });
+    }, 1350);
   };
   useEffect(scrollToBottom, [chat]);
 
