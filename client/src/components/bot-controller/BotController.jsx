@@ -22,6 +22,7 @@ const BotController = ({
           <BotMultiple
             messages={msg.message}
             sendMessage={sendMessage}
+            userMessage={userMessage}
           />
         );
       case MessageTypeEnum.SNIPPET:

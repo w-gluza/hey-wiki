@@ -1,7 +1,7 @@
 import React from "react";
 import BootSingle from "../bot-single/BotSingle";
 
-const UserFeedback = ({
+const BotEditor = ({
   labels,
   sendMessage,
   textMessages,
@@ -18,8 +18,9 @@ const UserFeedback = ({
   };
 
   const filteredOptions = labels.filter((obj) => {
-    return obj === "YES" || obj === "NO";
+    return obj === "VISUAL-EDITOR" || obj === "CODE-EDITOR";
   });
+
 
   return (
     <div>
@@ -32,11 +33,11 @@ const UserFeedback = ({
           key={option}
           onClick={() => sendMsg(option)}
         >
-          {option}
+          {option.label}
         </button>
       ))}
     </div>
   );
 };
 
-export default UserFeedback;
+export default BotEditor;
