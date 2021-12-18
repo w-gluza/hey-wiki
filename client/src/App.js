@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import './main.scss';
 
 import { Provider } from 'react-redux';
-import axios from 'axios';
 import { createSession } from './actions/queue';
 import store from './store';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -15,20 +14,11 @@ import HomeContainer from './container/HomeContainer';
 import AboutContainer from './container/AboutContainer';
 import ContactContainer from './container/ContactContainer';
 
-if (localStorage.session) {
-  delete axios.defaults.headers.common.session_id;
-  axios.defaults.headers.common.session_id = localStorage.session;
-} else {
-  delete axios.defaults.headers.common.session_id;
-}
 
 const App = () => {
   useEffect(() => {
-    // Check if there session
-    if (!localStorage.session) {
-      // Create a session
-      store.dispatch(createSession());
-    }
+    sessionStorage.clear();
+    store.dispatch(createSession());
   }, []);
 
   return (

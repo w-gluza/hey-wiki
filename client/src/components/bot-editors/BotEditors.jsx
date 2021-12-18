@@ -1,8 +1,7 @@
 import React from "react";
-import Icon from '../../assets/icons';
 import BootSingle from "../bot-single/BotSingle";
 
-const UserFeedback = ({
+const BotEditor = ({
   labels,
   sendMessage,
   textMessages,
@@ -19,8 +18,9 @@ const UserFeedback = ({
   };
 
   const filteredOptions = labels.filter((obj) => {
-    return obj === "YES" || obj === "NO";
+    return obj === "VISUAL-EDITOR" || obj === "CODE-EDITOR";
   });
+
 
   return (
     <div>
@@ -30,15 +30,14 @@ const UserFeedback = ({
       {filteredOptions && filteredOptions.map((option) => (
         <button
           type="button"
-          className="feedback-button" 
           key={option}
           onClick={() => sendMsg(option)}
         >
-          <Icon name="Positive" alt="" />
+          {option.label}
         </button>
       ))}
     </div>
   );
 };
 
-export default UserFeedback;
+export default BotEditor;

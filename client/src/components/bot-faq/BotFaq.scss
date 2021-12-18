@@ -1,0 +1,23 @@
+.bot-faq-suggestions-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 34px;
+  }
+  
+  .btn-faq {
+    background-color: transparent;
+    color: $color-primary;
+    border: $border-primary;
+    border-radius: $border-radius-lg;
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+    padding: $xs $md;
+    margin: 4px 4px;
+    width: max-content;
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+      cursor: pointer;
+    }
+  }
+  
