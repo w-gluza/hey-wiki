@@ -5,20 +5,30 @@
   border: $border-chat;
   border-radius: $border-radius-md;
   width: 80vw;
-  height: auto;
-  min-height: 60vh;
+  min-height: 80vh;
+  min-height: 80vh;
   padding: $sm;
   @include respond(sm) {
     width: 60vw;
   }
   @include respond(md) {
     width: 50vw;
+    min-height: 60vh;
+    max-height: 60vh;
   }
   @include respond(lg) {
     width: 40vw;
+    min-height: 60vh;
+    max-height: 60vh;
   }
   @include respond(xl) {
     width: 36vw;
+    max-height: 60vh;
+  }
+  @include respond(xxl) {
+    width: 32vw;
+    min-height: 60vh;
+    max-height: 60vh;
   }
 }
 
@@ -37,15 +47,15 @@
   width: 100%;
 }
 
-@media only screen and (max-width: 1200px) {
-  .chatbot {
-    min-width: 60vw;
-    max-width: 90vw;
-  }
-}
+// @media only screen and (max-width: 1200px) {
+//   .chatbot {
+//     min-width: 60vw;
+//     max-width: 90vw;
+//   }
+// }
 
-@media only screen and (max-width: 600px) {
-  .chatbot {
-    min-width: 90vw;
-  }
-}
+// @media only screen and (max-width: 600px) {
+//   .chatbot {
+//     min-width: 90vw;
+//   }
+// }

@@ -97,6 +97,12 @@ $box-shadow-user: 0px 10px 15px -5px rgba(51, 102, 204, 0.45);
       @content;
     }
   }
+
+  @if $breakpoint == xxl{
+    @media (min-width: 1300px) {
+      @content;
+    }
+  }
 }
 
 .icon-expand-link .contract {
