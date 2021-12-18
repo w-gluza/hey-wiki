@@ -6,6 +6,7 @@ import ChatbotFooter from "../chatbot-footer/ChatbotFooter.jsx";
 import BootController from "../bot-controller/BotController.jsx";
 import MessageTypeEnum from "../../types/MessageTypeEnum";
 import axios from 'axios';
+import InitialSuggestions from "../initial-suggestions/InitialSuggestions.jsx";
 
 const Bot = ({ chat, userMessage, sendMessage, hide }) => {
   const endOfMessages = useRef(null);
@@ -23,13 +24,11 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
     return false;
   }
 
-  console.log('sessionStorage.session',sessionStorage.session)
 
   useEffect(() => {
     if (sessionStorage.session) {
       delete axios.defaults.headers.common.session_id;
       axios.defaults.headers.common.session_id = sessionStorage.session;
-      console.log('axios.defaults.headers.common.session_id', axios.defaults.headers.common.session_id)
     } else {
       delete axios.defaults.headers.common.session_id;
     }
@@ -58,6 +57,10 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
               msgType={MessageTypeEnum.CUSTOM}
             />
           </div>
+          <InitialSuggestions
+            userMessage={userMessage}
+            sendMessage={sendMessage}
+          />
           {chat.length !== 0 &&
             chat.map((msg, index) => (
               <div key={index} className={`${msg.type}-container`}>

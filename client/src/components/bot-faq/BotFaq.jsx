@@ -11,11 +11,11 @@ const BotFaq = ({ faqArray, textMessages, userMessage, sendMessage }) => {
       {textMessages.map((singleMsg) => (
         <BootSingle key={singleMsg.text} msg={singleMsg.text} />
       ))}
-      <div className="bot-faq-suggestions-container">
+      <div className="options-container">
         {filteredArray.map((suggestion) => (
           <button
             key={suggestion}
-            className="btn-faq"
+            className="btn-options"
             onClick={() => {
               userMessage(suggestion);
               sendMessage(suggestion);
