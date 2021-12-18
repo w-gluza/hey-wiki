@@ -3,7 +3,6 @@ import illustration from "../assets/chat-illustration.svg";
 import ChatbotContainer from "./ChatbotContainer.jsx";
 import Modal from "../components/modal/Modal.jsx";
 import ToggleContent from "../components/modal/ToggleContent";
-import Icon from '../assets/icons'
 
 const HomeContainer = () => {
   return (
@@ -14,12 +13,6 @@ const HomeContainer = () => {
           WIKI is here to help you with editing and contributing to Wikipedia.
           Click below to start a chat!
         </p>
-        {/* <a href="#0"class="icon-expand-link">
-        <Icon name="VisualEditor"/>
-        </a> */}
-        <a href="#0"class="icon-expand-link">
-        <Icon name="CodeEditor"/>
-        </a>
         <ToggleContent
           toggle={(show) => (
             <button className="btn-primary" onClick={show}>
