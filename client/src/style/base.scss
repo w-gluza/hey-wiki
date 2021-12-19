@@ -7,7 +7,7 @@
   list-style: none;
   border: none;
   background-color: transparent;
-  font-family: 'Open Sans', Helvetica, Arial, Verdana, Tahoma;
+  font-family: "Open Sans", Helvetica, Arial, Verdana, Tahoma;
   font-style: normal;
 }
 html {
@@ -38,39 +38,66 @@ a:active {
 .main-container {
   display: grid;
   grid-template-rows: max-content auto;
-  height: 100vh;
+  @include respond(lg) {
+    height: 100vh;
+  }
 }
 
 .home-container {
-	display: grid;
-	grid-template-columns: repeat(2,1fr);
-	margin: $md;
-	section {
-		margin: 0 $xl;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
+  display: flex;
+  flex-direction: column-reverse;
+  padding-top: 48px;
+  @include respond(lg) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: $md;
+    padding-top: 0px;
+  }
+  section {
+    margin: 0 $lg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include respond(md) {
+      margin: 0 $xl;
+    }
+  }
 }
 
 .intro {
-	align-items: flex-start;
+  align-items: flex-start;
 }
 
 .illustration-container {
-	align-items: center;
+  align-items: center;
 }
 
-.intro, .illustration {
-	max-width: 500px;
+
+.intro {
+  @include respond(md) {
+    max-width: 400px;
+  }
+  @include respond(lg) {
+    max-width: 500px;
+  }
+}
+
+.illustration {
+  max-width: 200px;
+  @include respond(md) {
+    max-width: 400px;
+  }
+  @include respond(lg) {
+    max-width: 500px;
+  }
 }
 
 .illustration-about {
-	max-width: 400px;
+  max-width: 400px;
 }
 
 .illustration-contact {
-	max-width: 400px;
+  max-width: 400px;
 }
 
 .overlay-container {
@@ -78,28 +105,32 @@ a:active {
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn .3s;
+  animation: fadeIn 0.3s;
 }
 
 @keyframes fadeIn {
-	from {
-		opacity:0;
-	}
-	to {
-		opacity:1;
-	}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 h1 {
-  font-size: $font-size-xl;
+  font-size: $font-size-md;
   font-weight: $font-weight-bold;
-  margin: $md 0;
+  margin: $xs 0;
+  @include respond(md) {
+    font-size: $font-size-xl;
+    margin: $md 0;
+  }
 }
 
 h2 {
@@ -122,29 +153,51 @@ input {
   font-weight: $font-weight-light;
 }
 
-.about-paragraph, .contact-paragraph {
+.about-paragraph,
+.contact-paragraph {
   font-size: $font-size-sm;
   font-weight: $font-weight-light;
   padding-bottom: 16px;
 }
 
-
 .btn-primary {
-	background-color: transparent;
-	color: $color-primary;
-	border: $border-primary;
-	border-radius: $border-radius-lg;
-	font-size: $sm;
-	font-weight: $font-weight-bold;
-	padding: $xs $md;
-	margin: $md 0;
-	&:hover {
-		background-color: $color-primary;
-		color: $color-white;
-		cursor: pointer;
-	}
+  background-color: transparent;
+  color: $color-primary;
+  border: $border-primary;
+  border-radius: $border-radius-lg;
+  font-size: $sm;
+  font-weight: $font-weight-bold;
+  padding: $xs $md;
+  margin: $md 0;
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    cursor: pointer;
+  }
 }
 
+// Handles Initial suggestions. IBM suggestions. IBM options
+.btn-options {
+  background-color: transparent;
+  color: $color-primary;
+  border: $border-primary;
+  border-radius: $border-radius-lg;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  padding: 8px 24px;
+  margin: 4px 4px;
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    cursor: pointer;
+  }
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+}
 
 input:focus {
   outline: none;

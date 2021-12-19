@@ -1,15 +1,16 @@
 import React from 'react';
+import TypingContainer from "../typing-container/TypingContainer";
 import BootSingle from '../bot-single/BotSingle';
 
 const BotSuggestions = ({ suggestions, userMessage, sendMessage }) => {
   return (
-    <>
+    <TypingContainer>
       <BootSingle msg={"Did you mean:"} />
-      <div className="suggestions-container">
+      <div className="options-container">
         {suggestions.map((suggestion) => (
           <button
             key={suggestion.label}
-            className="btn-suggestions"
+            className="btn-options"
             onClick={() => {
               userMessage(suggestion.label);
               sendMessage(suggestion.label);
@@ -19,7 +20,7 @@ const BotSuggestions = ({ suggestions, userMessage, sendMessage }) => {
           </button>
         ))}
       </div>
-    </>
+    </TypingContainer>
   );
 };
 export default BotSuggestions;

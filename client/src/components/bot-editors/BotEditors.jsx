@@ -1,4 +1,5 @@
 import React from "react";
+import TypingContainer from "../typing-container/TypingContainer";
 import BootSingle from "../bot-single/BotSingle";
 
 const BotEditor = ({
@@ -23,20 +24,20 @@ const BotEditor = ({
 
 
   return (
-    <div>
-      {textMessages && textMessages.map((singleMsg) => (
-        <BootSingle key={singleMsg.text} msg={singleMsg.text} />
-      ))}
-      {filteredOptions && filteredOptions.map((option) => (
-        <button
-          type="button"
-          key={option}
-          onClick={() => sendMsg(option)}
-        >
-          {option.label}
-        </button>
-      ))}
-    </div>
+    <TypingContainer>
+      <div>
+        {textMessages &&
+          textMessages.map((singleMsg) => (
+            <BootSingle key={singleMsg.text} msg={singleMsg.text} />
+          ))}
+        {filteredOptions &&
+          filteredOptions.map((option) => (
+            <button type="button" key={option} onClick={() => sendMsg(option)}>
+              {option.label}
+            </button>
+          ))}
+      </div>
+    </TypingContainer>
   );
 };
 

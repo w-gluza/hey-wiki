@@ -4,6 +4,7 @@ import BotSingle from "../bot-single/BotSingle.jsx";
 import BotSuggestions from "../bot-suggestions/BotSuggestions.jsx";
 import BotSnippet from "../bot-snippet/BotSnippet.jsx";
 import BotMultiple from "../bot-multiple/BotMultiple.jsx";
+import TypingContainer from "../typing-container/TypingContainer";
 
 const BotController = ({
   msg,
@@ -14,9 +15,9 @@ const BotController = ({
   const getMessageController = () => {
     switch (msgType) {
       case MessageTypeEnum.CUSTOM:
-        return <BotSingle msg={msg} />;
+        return <TypingContainer><BotSingle msg={msg} /></TypingContainer>;
       case MessageTypeEnum.SINGLE:
-        return <BotSingle msg={msg.message} />;
+        return <TypingContainer><BotSingle msg={msg.message} /></TypingContainer>;
       case MessageTypeEnum.MULTIPLE:
         return (
           <BotMultiple

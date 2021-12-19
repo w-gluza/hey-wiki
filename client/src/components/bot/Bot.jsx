@@ -6,6 +6,7 @@ import ChatbotFooter from "../chatbot-footer/ChatbotFooter.jsx";
 import BootController from "../bot-controller/BotController.jsx";
 import MessageTypeEnum from "../../types/MessageTypeEnum";
 import axios from 'axios';
+import InitialMessage from "../initial-message/InitialMessage.jsx";
 
 const Bot = ({ chat, userMessage, sendMessage, hide }) => {
   const endOfMessages = useRef(null);
@@ -13,6 +14,9 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
 
   const scrollToBottom = () => {
     endOfMessages.current.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      endOfMessages.current.scrollIntoView({ behavior: "smooth" });
+    }, 1350);
   };
   useEffect(scrollToBottom, [chat]);
 
@@ -23,13 +27,11 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
     return false;
   }
 
-  console.log('sessionStorage.session',sessionStorage.session)
 
   useEffect(() => {
     if (sessionStorage.session) {
       delete axios.defaults.headers.common.session_id;
       axios.defaults.headers.common.session_id = sessionStorage.session;
-      console.log('axios.defaults.headers.common.session_id', axios.defaults.headers.common.session_id)
     } else {
       delete axios.defaults.headers.common.session_id;
     }
@@ -52,12 +54,7 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
       <section className="chatbot">
         <ChatbotHeader hide={hide} />
         <article className="chatbot-stream">
-          <div className="bot-container">
-            <BootController
-              msg="Hello 👋, I’m Wiki chatbot. I’m excited that you are a part of Wikipedia 🚀! How can I help you?"
-              msgType={MessageTypeEnum.CUSTOM}
-            />
-          </div>
+          <InitialMessage userMessage={userMessage} sendMessage={sendMessage} />
           {chat.length !== 0 &&
             chat.map((msg, index) => (
               <div key={index} className={`${msg.type}-container`}>
