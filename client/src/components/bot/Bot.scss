@@ -13,22 +13,23 @@
   }
   @include respond(md) {
     width: 50vw;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 65vh;
+    max-height: 65vh;
   }
   @include respond(lg) {
     width: 40vw;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 65vh;
+    max-height: 65vh;
   }
   @include respond(xl) {
-    width: 36vw;
-    max-height: 60vh;
+    width: 40vw;
+    min-height: 65vh;
+    max-height: 65vh;
   }
   @include respond(xxl) {
     width: 32vw;
-    min-height: 60vh;
-    max-height: 60vh;
+    min-height: 65vh;
+    max-height: 65vh;
   }
 }
 
