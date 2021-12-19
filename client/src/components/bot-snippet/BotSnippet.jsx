@@ -1,10 +1,10 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { stackoverflowLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {atelierSulphurpoolLight} from 'react-syntax-highlighter/dist/esm/styles/hljs/';
 import BootSingle from '../bot-single/BotSingle.jsx';
 
 const BotSnippet = ({ msg }) => {
-  const matchedStringArray = typeof msg === 'string' && msg.match(/^(.*?)~~~/i);
+  const matchedStringArray = typeof msg === 'string' && msg.match(/^(.*?)\n~~~/i);
 
   const matchedString =
     Array.isArray(matchedStringArray) && matchedStringArray.length >= 1
@@ -27,8 +27,8 @@ const BotSnippet = ({ msg }) => {
       {matchedCodeString && (
         <div className="snippet-container">
           <SyntaxHighlighter
-            language="markdown"
-            style={stackoverflowLight}
+            language="html"
+            style={atelierSulphurpoolLight}
             wrapLines={true}
           >
             {cleanedCodeString}
