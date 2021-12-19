@@ -24,7 +24,7 @@ const MediaController = ({ matchedURL }) => {
   const getMediaContainer = () => {
     switch (mediaType) {
       case MediaTypesEnum.VIDEO:
-        return <VideoPlayer videoID={videoID} />;
+        return <div className="media-controller-wrapper"><VideoPlayer videoID={videoID} /></div>;
       case MediaTypesEnum.IMAGE:
         return <>img</>;
       default:
@@ -32,7 +32,7 @@ const MediaController = ({ matchedURL }) => {
     }
   };
 
-  return <div className="media-controller-wrapper">{getMediaContainer()}</div>;
+  return <>{getMediaContainer()}</>;
 };
 
 export default MediaController;
