@@ -1,13 +1,14 @@
 import React from "react";
 import BootSingle from "../bot-single/BotSingle";
+import TypingContainer from "../typing-container/TypingContainer";
 
 const BotFaq = ({ faqArray, textMessages, userMessage, sendMessage }) => {
   console.log("labels", faqArray);
 
-  const filteredArray = faqArray.filter((e) => e !== "SKIP"); // will return ['A', 'C']
+  const filteredArray = faqArray.filter((e) => e !== "SKIP");
 
   return (
-    <>
+    <TypingContainer>
       {textMessages.map((singleMsg) => (
         <BootSingle key={singleMsg.text} msg={singleMsg.text} />
       ))}
@@ -25,7 +26,7 @@ const BotFaq = ({ faqArray, textMessages, userMessage, sendMessage }) => {
           </button>
         ))}
       </div>
-    </>
+    </TypingContainer>
   );
 };
 

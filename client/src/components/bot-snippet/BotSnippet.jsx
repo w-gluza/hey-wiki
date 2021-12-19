@@ -2,6 +2,7 @@ import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {atelierSulphurpoolLight} from 'react-syntax-highlighter/dist/esm/styles/hljs/';
 import BootSingle from '../bot-single/BotSingle.jsx';
+import TypingContainer from '../typing-container/TypingContainer.jsx';
 
 const BotSnippet = ({ msg }) => {
   const matchedStringArray = typeof msg === 'string' && msg.match(/^(.*?)\n~~~/i);
@@ -22,7 +23,7 @@ const BotSnippet = ({ msg }) => {
   const cleanedCodeString =
     typeof msg === "string" && matchedCodeString.replaceAll("~~~", "");
   return (
-    <>
+    <TypingContainer>
       {matchedString && <BootSingle msg={matchedString} />}
       {matchedCodeString && (
         <div className="snippet-container">
@@ -35,7 +36,7 @@ const BotSnippet = ({ msg }) => {
           </SyntaxHighlighter>
         </div>
       )}
-    </>
+    </TypingContainer>
   );
 };
 export default BotSnippet;
