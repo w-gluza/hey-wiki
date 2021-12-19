@@ -6,7 +6,7 @@ import ChatbotFooter from "../chatbot-footer/ChatbotFooter.jsx";
 import BootController from "../bot-controller/BotController.jsx";
 import MessageTypeEnum from "../../types/MessageTypeEnum";
 import axios from 'axios';
-import InitialSuggestions from "../initial-suggestions/InitialSuggestions.jsx";
+import InitialMessage from "../initial-message/InitialMessage.jsx";
 
 const Bot = ({ chat, userMessage, sendMessage, hide }) => {
   const endOfMessages = useRef(null);
@@ -54,16 +54,7 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
       <section className="chatbot">
         <ChatbotHeader hide={hide} />
         <article className="chatbot-stream">
-          <div className="bot-container">
-            <BootController
-              msg="Hello 👋, I’m Wiki chatbot. I’m excited that you are a part of Wikipedia 🚀! How can I help you?"
-              msgType={MessageTypeEnum.CUSTOM}
-            />
-          </div>
-          <InitialSuggestions
-            userMessage={userMessage}
-            sendMessage={sendMessage}
-          />
+          <InitialMessage userMessage={userMessage} sendMessage={sendMessage} />
           {chat.length !== 0 &&
             chat.map((msg, index) => (
               <div key={index} className={`${msg.type}-container`}>
