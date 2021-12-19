@@ -9,7 +9,7 @@ const ChatbotHeader = ({ hide }) => (
       <img className="avatar-header" src={avatar} alt="wiki avatar" />
       <div>
         <h2>Wiki Bot</h2>
-        <p className="chatbot-subtitle">Ask me anything :)</p>
+        <p className="chatbot-subtitle">I'm here to help you with Wikipedia editing.</p>
       </div>
     </div>
     <button onClick={hide} className="close-button">
