@@ -54,7 +54,11 @@ const Bot = ({ chat, userMessage, sendMessage, hide }) => {
       <section className="chatbot">
         <ChatbotHeader hide={hide} />
         <article className="chatbot-stream">
-          <InitialMessage userMessage={userMessage} sendMessage={sendMessage} />
+          <InitialMessage
+            userMessage={userMessage}
+            sendMessage={sendMessage}
+            optionRequired={optionRequired}
+          />
           {chat.length !== 0 &&
             chat.map((msg, index) => (
               <div key={index} className={`${msg.type}-container`}>

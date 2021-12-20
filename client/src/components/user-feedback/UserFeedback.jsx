@@ -41,7 +41,7 @@ const UserFeedback = ({ labels, sendMessage, textMessages }) => {
                   {option === "YES" ? (
                     <Icon name="Positive" alt="Yes" />
                   ) : (
-                    <Icon name="Positive" alt="No" />
+                    <Icon name="Negative" alt="No" />
                   )}
                 </button>
               </span>
