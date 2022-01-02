@@ -25,9 +25,13 @@ NodeJS formatter for IBM Watson assistant.
    ```sh
    cd client
    ```
-4. Install NPM packages for backend
+4. Install NPM packages for frontend
    ```sh
    npm install
+   ```
+5. CD back to root folder
+   ```sh
+   cd ..
    ```
 
 ## Running the project
